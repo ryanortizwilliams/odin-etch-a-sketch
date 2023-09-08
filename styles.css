@@ -1,0 +1,26 @@
+*{
+    padding: 0;
+    margin: 0;
+  }
+  
+  .flex-container {
+    width: auto;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #canvas {
+    min-height: 500px;
+    max-width: 500px;
+    display: flex;
+    flex-wrap: wrap;
+    flex:1;
+  }
+  
+  .canvas-div{
+    outline: 3px solid black;
+    outline-offset: -3x;
+  }
+  
