@@ -1,10 +1,9 @@
 let currentSize = 16;
 let currentColor = "red";
-//this should be the percent for each box height and size
-
-const canvas = document.querySelector('#canvas'); 
+let gridOn = true;
 
 //creates the canvas
+const canvas = document.querySelector('#canvas'); 
 function createCanvas(divsPerRow){
     const divTotal = divsPerRow * divsPerRow;
     const boxSize = 100/divsPerRow;
@@ -16,8 +15,9 @@ function createCanvas(divsPerRow){
         canvas_div.style.minWidth = `${boxSize}%`;
 
         //canvas grid
-        canvas_div.setAttribute('class', 'canvas-div');
-
+        if(gridOn) {
+            canvas_div.setAttribute('class', 'canvas-div');
+        }
         // drawing
         canvas_div.addEventListener('mouseover', function(e) {
           e.target.style.backgroundColor = currentColor;
@@ -69,16 +69,14 @@ size100.addEventListener(
 
 
 //TOGGLE GRID
-// function toggleGrid() {
-//     let canvasChildren = document.querySelector('#canvas').children;
-//     canvasChildren.classList.toggle('canvas-div')
-
-// }
-
-// let toggle = document.getElementById('toggle');
-// toggle.addEventListener(toggleGrid);
-
-// inital canvas creation
+function toggleGrid() {
+    gridOn = !gridOn
+   canvas.childNodes.forEach((e,i)=>{
+    e.classList.toggle('canvas-div')
+   })
+}
+const gridButton = document.getElementById('grid');
+gridButton.addEventListener('click', toggleGrid);
 
 //CHANGE COLOR
 
