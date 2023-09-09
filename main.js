@@ -5,7 +5,6 @@ let boxSize = 100/divsPerRow;
 const canvas = document.querySelector('#canvas');
 
 // TODO: Write function to change number of buttons 
-// add buttons and assign to functions
 
 //creates the canvas
 function createCanvas(){
@@ -27,7 +26,17 @@ function createCanvas(){
 }
 
 //functions
+//clear
+
+function clearCanvas(){
+    canvas.replaceChildren();
+    createCanvas();
+}
+//clear button function
+const clearButton = document.getElementById('clear')
+clearButton.addEventListener('click', clearCanvas)
 //change number of squares
+
 
 
 
