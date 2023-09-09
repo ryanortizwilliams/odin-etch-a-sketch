@@ -1,13 +1,15 @@
-let divsPerRow = 16;
-let divTotal = divsPerRow * divsPerRow;
+let currentSize = 16;
+
 //this should be the percent for each box height and size
-let boxSize = 100/divsPerRow;
+
 const canvas = document.querySelector('#canvas');
 
 // TODO: Write function to change number of buttons 
 
 //creates the canvas
-function createCanvas(){
+function createCanvas(divsPerRow){
+    const divTotal = divsPerRow * divsPerRow;
+    const boxSize = 100/divsPerRow;
     for (i=0; i < divTotal; i++) {
         const canvas_div = document.createElement('div');
         canvas_div.style.backgroundColor = 'white';
@@ -29,7 +31,7 @@ function createCanvas(){
 //Clearing
 function clearCanvas(){
     canvas.replaceChildren();
-    createCanvas();
+    createCanvas(currentSize);
 }
 //clear button function
 const clearButton = document.getElementById('clear')
@@ -37,11 +39,33 @@ clearButton.addEventListener('click', clearCanvas)
 
 //Changing size
 function changeSize(number) {
-    divsPerRow = number;
-    clearCanvas();
+    currentSize = number;
+    clearCanvas(currentSize);
 }
 
+//get button
+const size16 = document.getElementById('size-16');
+const size32 = document.getElementById('size-32');
+const size64 = document.getElementById('size-64');
+const size100 = document.getElementById('size-100');
+
+//button Events
+size16.addEventListener(
+    'click', changeSize.bind(null,16)
+)
+
+size32.addEventListener(
+    'click', changeSize.bind(null,32)
+)
+
+size64.addEventListener(
+    'click', changeSize.bind(null,64)
+)
+
+size100.addEventListener(
+    'click', changeSize.bind(null,100)
+)
 
 
-
-createCanvas()
+//inital canvas creation
+createCanvas(currentSize)
