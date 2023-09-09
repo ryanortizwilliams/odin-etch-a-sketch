@@ -4,20 +4,31 @@ let divTotal = divsPerRow * divsPerRow;
 let boxSize = 100/divsPerRow;
 const canvas = document.querySelector('#canvas');
 
+// TODO: Write function to change number of buttons 
+// add buttons and assign to functions
 
-for (i=0; i < divTotal; i++) {
-  const canvas_div = document.createElement('div');
-  canvas_div.style.backgroundColor = 'blue';
-  canvas_div.style.maxHeight = `${boxSize}%`;
-  canvas_div.style.flex = 'auto';
-  canvas_div.style.minWidth = `${boxSize}%`;
-  canvas_div.setAttribute('class', 'canvas-div');
-  canvas_div.addEventListener('mouseover', function(e) {
-    e.target.style.backgroundColor = 'red';
-  })
-  canvas_div.addEventListener('hover', function(e) {
-    e.target.style.backgroundColor = 'red';
-  })
-   canvas.appendChild(canvas_div);
+//creates the canvas
+function createCanvas(){
+    for (i=0; i < divTotal; i++) {
+        const canvas_div = document.createElement('div');
+        canvas_div.style.backgroundColor = 'blue';
+        canvas_div.style.maxHeight = `${boxSize}%`;
+        canvas_div.style.flex = 'auto';
+        canvas_div.style.minWidth = `${boxSize}%`;
+        canvas_div.setAttribute('class', 'canvas-div');
+        canvas_div.addEventListener('mouseover', function(e) {
+          e.target.style.backgroundColor = 'red';
+        })
+        canvas_div.addEventListener('hover', function(e) {
+          e.target.style.backgroundColor = 'red';
+        })
+         canvas.appendChild(canvas_div);
+      }
 }
 
+//functions
+//change number of squares
+
+
+
+createCanvas()
