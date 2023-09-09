@@ -10,7 +10,7 @@ const canvas = document.querySelector('#canvas');
 function createCanvas(){
     for (i=0; i < divTotal; i++) {
         const canvas_div = document.createElement('div');
-        canvas_div.style.backgroundColor = 'blue';
+        canvas_div.style.backgroundColor = 'white';
         canvas_div.style.maxHeight = `${boxSize}%`;
         canvas_div.style.flex = 'auto';
         canvas_div.style.minWidth = `${boxSize}%`;
@@ -25,9 +25,8 @@ function createCanvas(){
       }
 }
 
-//functions
-//clear
-
+//FUNCTIONS
+//Clearing
 function clearCanvas(){
     canvas.replaceChildren();
     createCanvas();
@@ -35,7 +34,12 @@ function clearCanvas(){
 //clear button function
 const clearButton = document.getElementById('clear')
 clearButton.addEventListener('click', clearCanvas)
-//change number of squares
+
+//Changing size
+function changeSize(number) {
+    divsPerRow = number;
+    clearCanvas();
+}
 
 
 
