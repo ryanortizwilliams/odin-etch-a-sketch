@@ -1,10 +1,8 @@
 let currentSize = 16;
-
+let currentColor = "red";
 //this should be the percent for each box height and size
 
-const canvas = document.querySelector('#canvas');
-
-// TODO: Write function to change number of buttons 
+const canvas = document.querySelector('#canvas'); 
 
 //creates the canvas
 function createCanvas(divsPerRow){
@@ -16,9 +14,13 @@ function createCanvas(divsPerRow){
         canvas_div.style.maxHeight = `${boxSize}%`;
         canvas_div.style.flex = 'auto';
         canvas_div.style.minWidth = `${boxSize}%`;
+
+        //canvas grid
         canvas_div.setAttribute('class', 'canvas-div');
+
+        // drawing
         canvas_div.addEventListener('mouseover', function(e) {
-          e.target.style.backgroundColor = 'red';
+          e.target.style.backgroundColor = currentColor;
         })
         canvas_div.addEventListener('hover', function(e) {
           e.target.style.backgroundColor = 'red';
@@ -27,8 +29,7 @@ function createCanvas(divsPerRow){
       }
 }
 
-//FUNCTIONS
-//Clearing
+//CLEARING
 function clearCanvas(){
     canvas.replaceChildren();
     createCanvas(currentSize);
@@ -37,19 +38,19 @@ function clearCanvas(){
 const clearButton = document.getElementById('clear')
 clearButton.addEventListener('click', clearCanvas)
 
-//Changing size
+
+// CHANGING SIZE
 function changeSize(number) {
     currentSize = number;
     clearCanvas(currentSize);
 }
-
 //get button
 const size16 = document.getElementById('size-16');
 const size32 = document.getElementById('size-32');
 const size64 = document.getElementById('size-64');
 const size100 = document.getElementById('size-100');
 
-//button Events
+// button Events
 size16.addEventListener(
     'click', changeSize.bind(null,16)
 )
@@ -67,5 +68,46 @@ size100.addEventListener(
 )
 
 
-//inital canvas creation
+//TOGGLE GRID
+// function toggleGrid() {
+//     let canvasChildren = document.querySelector('#canvas').children;
+//     canvasChildren.classList.toggle('canvas-div')
+
+// }
+
+// let toggle = document.getElementById('toggle');
+// toggle.addEventListener(toggleGrid);
+
+// inital canvas creation
+
+//CHANGE COLOR
+
+function changeColor(color) {
+    currentColor = color;
+}
+//get color buttons
+const redButton = document.getElementById('red');
+const blueButton = document.getElementById('blue');
+const yellowButton = document.getElementById('yellow');
+const greenButton = document.getElementById('green');
+
+//color button events
+redButton.addEventListener(
+    'click', changeColor.bind(null,'red')
+)
+
+blueButton.addEventListener(
+    'click', changeColor.bind(null,'blue')
+)
+
+yellowButton.addEventListener(
+    'click', changeColor.bind(null,'yellow')
+)
+
+greenButton.addEventListener(
+    'click', changeColor.bind(null,'green')
+)
+
+
+
 createCanvas(currentSize)
