@@ -19,7 +19,7 @@ function createCanvas(divsPerRow){
             canvas_div.setAttribute('class', 'canvas-div');
         }
         // drawing
-        canvas_div.addEventListener('mouseover', function(e) {
+        canvas_div.addEventListener('click', function(e) {
           e.target.style.backgroundColor = currentColor;
         })
         canvas_div.addEventListener('hover', function(e) {
